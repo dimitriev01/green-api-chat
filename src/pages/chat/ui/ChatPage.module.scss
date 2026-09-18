@@ -1,0 +1,242 @@
+.page {
+  min-height: 100vh;
+  padding: 24px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(98, 118, 255, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(150, 76, 255, 0.1),
+      transparent 30%
+    ),
+    #f4f5f8;
+}
+
+.app {
+  width: min(1280px, 100%);
+  height: min(860px, calc(100vh - 48px));
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  overflow: hidden;
+  border: 1px solid #e8eaf0;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow:
+    0 24px 70px rgba(30, 35, 55, 0.1),
+    0 4px 16px rgba(30, 35, 55, 0.04);
+}
+
+.sidebar {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eceef3;
+  background: #fafafd;
+}
+
+.brand {
+  height: 78px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #eceef3;
+
+  > div:last-child {
+    min-width: 0;
+    display: grid;
+    gap: 2px;
+  }
+
+  strong {
+    font-size: 16px;
+  }
+
+  span {
+    color: #9297a3;
+    font-size: 12px;
+  }
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #59a6ff, #784dff 65%, #a04cff);
+  color: #fff;
+  font-size: 19px;
+  font-weight: 800;
+  box-shadow: 0 8px 22px rgba(106, 88, 255, 0.24);
+}
+
+.sidebarTitle {
+  padding: 22px 20px 10px;
+  color: #9297a3;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.chatList {
+  flex: 1;
+  padding: 4px 10px;
+}
+
+.chatItem {
+  padding: 11px 12px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  border-radius: 14px;
+  background: #eef0ff;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #71b1ff, #7654ff);
+  color: white;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.chatInfo {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+
+  strong {
+    overflow: hidden;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  span {
+    color: #9297a3;
+    font-size: 12px;
+  }
+}
+
+.sidebarEmpty {
+  padding: 24px 12px;
+  color: #a0a4af;
+  font-size: 13px;
+  text-align: center;
+}
+
+.logout {
+  padding: 16px;
+
+  button {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #e2e4ea;
+    border-radius: 12px;
+    background: white;
+    color: #626774;
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      border-color 0.15s ease;
+
+    &:hover {
+      border-color: #d4d7df;
+      background: #f3f4f7;
+    }
+  }
+}
+
+.content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background: #f7f7fa;
+}
+
+.chatHeader {
+  min-height: 78px;
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #eceef3;
+  background: rgba(255, 255, 255, 0.96);
+
+  > div:last-child {
+    display: grid;
+    gap: 3px;
+  }
+
+  strong {
+    font-size: 15px;
+  }
+
+  span {
+    color: #9297a3;
+    font-size: 12px;
+  }
+}
+
+.emptyState {
+  width: min(520px, calc(100% - 40px));
+  margin: auto;
+  text-align: center;
+
+  h1 {
+    margin: 22px 0 8px;
+    font-size: 28px;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    max-width: 420px;
+    margin: 0 auto 28px;
+    color: #7f8490;
+    line-height: 1.5;
+  }
+}
+
+.emptyIcon {
+  width: 84px;
+  height: 84px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #5bacff, #7153ff 60%, #9e4cff);
+  color: #fff;
+  font-size: 34px;
+  font-weight: 800;
+  box-shadow: 0 16px 40px rgba(107, 84, 255, 0.25);
+}
+
+@media (max-width: 760px) {
+  .page {
+    padding: 0;
+  }
+
+  .app {
+    height: 100vh;
+    border: 0;
+    border-radius: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}

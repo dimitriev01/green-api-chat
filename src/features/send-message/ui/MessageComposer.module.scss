@@ -1,0 +1,53 @@
+.composer {
+  padding: 14px 18px 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  border-top: 1px solid #eceef3;
+  background: white;
+
+  input {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid #e0e2e8;
+    border-radius: 18px;
+    outline: none;
+    background: #f5f6f8;
+    color: #24262c;
+    transition:
+      border-color 0.15s ease,
+      background 0.15s ease;
+
+    &::placeholder {
+      color: #a5a9b3;
+    }
+
+    &:focus {
+      border-color: #7664ff;
+      background: white;
+    }
+  }
+
+  button {
+    min-width: 86px;
+    padding: 0 18px;
+    border: 0;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #7767ff, #6652ed);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: default;
+      opacity: 0.45;
+    }
+  }
+
+  span {
+    grid-column: 1 / -1;
+    padding-left: 4px;
+    color: #d14343;
+    font-size: 12px;
+  }
+}
