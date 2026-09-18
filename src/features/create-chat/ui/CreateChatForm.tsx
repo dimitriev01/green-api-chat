@@ -23,8 +23,8 @@ export function CreateChatForm() {
     const phoneNumber = normalizePhoneNumber(phone);
     setError('');
 
-    if (!phoneNumber) {
-      setError('Enter recipient phone number.');
+    if (!/^\d{11,12}$/.test(phoneNumber)) {
+      setError('Enter a valid phone number with 11 or 12 digits.');
       return;
     }
 

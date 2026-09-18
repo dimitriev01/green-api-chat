@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
 import type { ChatMessage } from '../types/message';
 
 interface MessageStore {
@@ -7,23 +8,31 @@ interface MessageStore {
   clearMessages: () => void;
 }
 
-export const useMessageStore = create<MessageStore>((set) => ({
-  messages: [],
+export const useMessageStore = create<MessageStore>()(
+  persist(
+    (set) => ({
+      messages: [],
 
-  addMessage: (message) =>
-    set((state) => {
-      const alreadyExists = state.messages.some(
-        (existingMessage) => existingMessage.id === message.id,
-      );
+      addMessage: (message) =>
+        set((state) => {
+          const alreadyExists = state.messages.some(
+            (existingMessage) => existingMessage.id === message.id,
+          );
 
-      if (alreadyExists) {
-        return state;
-      }
+          if (alreadyExists) {
+            return state;
+          }
 
-      return {
-        messages: [...state.messages, message],
-      };
+          return {
+            messages: [...state.messages, message],
+          };
+        }),
+
+      clearMessages: () => set({ messages: [] }),
     }),
-
-  clearMessages: () => set({ messages: [] }),
-}));
+    {
+      name: 'green-api-messages',
+      storage: createJSONStorage(() => sessionStorage),
+    },
+  ),
+);
